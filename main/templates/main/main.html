@@ -1,17 +1,16 @@
 {% extends "main/base.html" %}
-{% load crispy_forms_tags %}
 {% block content %}
-{% for emails in emails %}
-<article class="media content-section">
-  <div class="media-body">
-    <div class="article-metadata">
-      <a class="mr-2" href="#">{{ emails.author }}</a>
-      <small class="text-muted">{{ emails.date }}</small>
-    </div>
-    <h2><a class="article-title" href="#">{{ emails.title }}</a></h2>
-    <p class="article-content">{{ emails.content }}</p>
-  </div>
-</article>
-{% endfor %}
+    {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
 {% endblock content %}
 
