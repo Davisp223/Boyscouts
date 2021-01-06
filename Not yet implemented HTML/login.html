@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Boy_Scouts_of_America_corporate_trademark.svg/1200px-Boy_Scouts_of_America_corporate_trademark.svg.png" />
-    <title>Troop 996-Recap</title>
+    <title>Troop 996-Login</title>
 <style>
 * {
   box-sizing: border-box;
@@ -72,38 +72,24 @@ input[type=submit]:hover {
 </style>
 </head>
 <body style="background-color:lightblue;">
-    <a href="/home"style="color:black; text-decoration:none" ><h1><center>Troop 996 | Recap Page | Hello (name)</center></h1></a>
+    <a href="Change"style="color:black; text-decoration:none" ><h1><center>Troop 996 | Login Page </center></h1></a>
     <p><center>Click the title above to go back to the home page</center></p>
  
 <div class="card">
-    <h1>Meeting Recap</h1>
-    <p> Please fill out the form below and click the send Button at the bottom to send out the meeting recap </p>
+    <h1>Login Form</h1>
+    <p> Please fill out of the form below to log into your account</p>
  
 
     <div class="container">
         <form action="/action_page.php">
-          <label for="fname">Date</label>
-          <input type="text" id="fname" name="date" placeholder="Please Type The Date">
+          <label for="fname">Username</label>
+          <input type="text" id="fname" name="user" placeholder="Please Type Your Username">
       
-          <label for="lname">Title</label>
-          <input type="text" id="lname" name="title" placeholder="Please Type the First title">
+          <label for="lname">Password</label>
+          <input type="text" id="lname" name="psw" placeholder="Please Type your Password">
       
-          <label for="subject">Subject</label>
-          <textarea id="subject" name="subject" placeholder="Write something about the title above" style="height:200px"></textarea>
-          
-              <label for="lname">Title</label>
-          <input type="text" id="lname" name="title" placeholder="Please Type the Second title">
-      
-          <label for="subject">Subject</label>
-          <textarea id="subject" name="subject" placeholder="Write something about the title above" style="height:200px"></textarea>
-          
-              <label for="lname">Title</label>
-          <input type="text" id="lname" name="title" placeholder="Please Type the Third title">
-      
-          <label for="subject">Subject</label>
-          <textarea id="subject" name="subject" placeholder="Write something about the title above" style="height:200px"></textarea>
-      
-          <input type="submit" value="Submit">
+
+          <input type="login" value="Login">
         </form>
       </div>
 
