@@ -1,98 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Boy_Scouts_of_America_corporate_trademark.svg/1200px-Boy_Scouts_of_America_corporate_trademark.svg.png" />
-    <title>Troop 996-Register</title>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 33.333%;
-  padding: 10px;
-  height: 100%;
-  padding: 70px 0;
-  text-align: center;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.card {
-  box-shadow: 0 18px 20px 0 rgba(0, 0, 0, 0.2);
-  max-width: 90%;
-  margin:  auto;
-  text-align: center;
-  height: auto;
-  border-radius: 10px;
-}
-
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #45a049;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-  border-radius: 10px;
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: lightblue;
-  padding: 20px;
-}
-
-
-</style>
-</head>
-<body style="background-color:lightblue;">
-    <a href="Change"style="color:black; text-decoration:none" ><h1><center>Troop 996 | Register Page </center></h1></a>
-    <p><center>Click the title above to go back to the home page</center></p>
- 
-<div class="card">
-    <h1>Register Form</h1>
-    <p> Please fill out of the form below to log into your account</p>
- 
-
-    <div class="container">
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
         <form method="POST">
-          {% csrf_token %}
-
-          {{ form.as_p }}
-
-          <input type="submit" value="Register">
-
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Register Here</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
         </form>
-        <small>Already Have An Account? <a href="#"></a> </small>
-      </div>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="#">Sign In</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
 
-</div>
-
-</body>
-</html>

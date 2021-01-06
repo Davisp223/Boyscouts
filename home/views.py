@@ -2,17 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 
-news = [
+emails = [
     {
-        'date': '1/6/2021',
-        'title': 'New Campouts',
-        'body': 'There will be a new campout next month'
+        'author': 'Davis Plude',
+        'date': '1/7/2021',
+        'title': 'New Campout!!!',
+        'content': 'There will be a new campout next month'
     }
 ]
 
 def home(request):
     context = {
-        'news': news
+        'emails': emails
     }
     return render(request, 'home/home.html', context)
 

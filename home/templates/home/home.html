@@ -1,81 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Boy_Scouts_of_America_corporate_trademark.svg/1200px-Boy_Scouts_of_America_corporate_trademark.svg.png" />
-    <title>Troop 996-Home</title>
-<style>
-* {
-  box-sizing: border-box;
-}
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% for emails in emails %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ emails.author }}</a>
+      <small class="text-muted">{{ emails.date }}</small>
+    </div>
+    <h2><a class="article-title" href="#">{{ emails.title }}</a></h2>
+    <p class="article-content">{{ emails.content }}</p>
+  </div>
+</article>
+{% endfor %}
+{% endblock content %}
 
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 25%;
-  padding: 10px;
-  height: 100%;
-  padding: 70px 0;
-  text-align: center;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.card {
-  box-shadow: 0 18px 20px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin:  auto;
-  text-align: center;
-  height: 400px;
-  border-radius: 10px;
-}
-
-
-
-
-</style>
-</head>
-<body style="background-color:lightblue;">
-  <a href="/home"style="color:black; text-decoration:none" ><h1><center>Troop 996 Home Page</center></h1></a>
-    <div class="row">
-        <div class="column">
-            <a href="login"style="color:black; text-decoration:none" ><div class="card">
-                <img src="https://www.pinclipart.com/picdir/big/125-1252102_png-file-icon-for-attendance-record-clipart.png" alt="login picture" style="width:75%">
-                <h1>Attendance</h1>
-                <p> Click me to take Attendance</p>
-             </div></a>
-        </div>
-        <div class="column">
-            <a href="recap/"style="color:black; text-decoration:none" ><div class="card">
-                <img src="https://cdn.onlinewebfonts.com/svg/img_19515.png" alt="login picture" style="width:75%">
-                <h1>Recaps</h1>
-                <p> Click me to recap the meeting</p>
-             </div></a>
-        </div>
-        <div class="column">
-            <a href="register"style="color:black; text-decoration:none" ><div class="card">
-                <img src="https://cdn.onlinewebfonts.com/svg/img_243887.png" alt="login picture" style="width:75%">
-                <h1>Your Account</h1>
-                <p> Click me to access you account details </p>
-             </div></a>
-        </div>
-        <div class="column">
-          <div class="card">
-              <h1>News</h1>
-              {% for news in news %}
-                <h1>{{news.title}}</h1>
-                <p>{{news.date}}</p>
-                <p>{{news.body}}</p>
-                
-                {% endfor %}
-              
-           </div>
-      </div>
-      </div>
-
-</body>
-</html>
