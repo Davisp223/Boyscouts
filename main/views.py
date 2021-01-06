@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 emails = [
@@ -10,12 +11,10 @@ emails = [
         'content': 'There will be a new campout next month'
     }
 ]
-
-def home(request):
+@login_required
+def main(request):
     context = {
         'emails': emails
     }
-    return render(request, 'home/home.html', context)
+    return render(request, 'main/main.html', context)
 
-def recap(request):
-    return render(request, 'home/recap.html')
