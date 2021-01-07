@@ -22,15 +22,14 @@ def send_mail(sender, instance, created, **kwargs):
     msg = EmailMessage()
     msg['Subject'] = 'Troop996 Automessage -- Do Not Reply'
     msg['From'] = EMAIL_ADDRESS 
-    msg['To'] = ['davisp713@gmail.com','noah@roninresearch.org']
-
+    msg['To'] = file = open("main/contacts.txt", "r")
 
     msg.add_alternative("""\
     <!DOCTYPE html>
     <html>
         <body>
             <h1 style="color:SlateGray;">Troop 996 - Auto generated emails </h1>
-        </body>
+     </body>
     </html>
     """, subtype='html')
 

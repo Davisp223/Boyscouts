@@ -19,6 +19,9 @@ def main(request):
     }
     return render(request, 'main/main.html', context,)
 
+def body(request):
+    return render(request, 'main/body.html')
+
 
 class PostListView(ListView):
     model = Post
