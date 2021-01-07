@@ -11,6 +11,11 @@ from email.message import EmailMessage
 
 @receiver(signals.post_save, sender=Post)
 def send_mail(sender, instance, created, **kwargs):
+
+    context = {
+        'posts': Post.objects.all()
+        }
+
     # to test if the signal is working
     print('signal send')
     # replace it with your code once it works
@@ -27,11 +32,13 @@ def send_mail(sender, instance, created, **kwargs):
     msg.add_alternative("""\
     <!DOCTYPE html>
     <html>
-        <body>
-            <h1 style="color:SlateGray;">Troop 996 - Auto generated emails </h1>
-     </body>
+     <body>
+           <h1 style="color:SlateGray;"> {{ content }}</h1>
+        </body>
     </html>
     """, subtype='html')
+
+
 
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
