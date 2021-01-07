@@ -6,7 +6,7 @@ from email.message import EmailMessage
 EMAIL_ADDRESS = "troop996automessager@gmail.com"
 EMAIL_PASSWORD = "Troop996admin"
 
-contacts = ['Email_ADDRESS', 'nasarocks12@gmail.com',]
+contacts = ['Email_ADDRESS', 'davisp713@gmail.com',]
 
 msg = EmailMessage()
 msg['Subject'] = 'Troop996 Automessage -- Do Not Reply'
