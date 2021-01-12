@@ -80,14 +80,21 @@ WSGI_APPLICATION = 'troop996.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'troop996',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+DB_URL = os.getenv("JAWSDB_URL")
+if DB_URL:
+    DEBUG = False
+    import dj_database_url
+    DATABASES = {"default": dj_database_url.config(default=DB_URL)}
+else:
+    DEBUG = True
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql', 
+            'NAME': 'troop996',
+            'USER': 'root',
+            'PASSWORD': 'password',
+            'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+            'PORT': '3306',
         }
     }
 
