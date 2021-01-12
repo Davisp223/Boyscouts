@@ -19,7 +19,7 @@ def send_mail(sender, instance, created, **kwargs):
     msg = EmailMessage()
     msg['Subject'] = 'Troop996 Automessage -- Do Not Reply'
     msg['From'] = EMAIL_ADDRESS 
-    #msg['To'] = file = open("main/contacts.txt", "r")
+    msg['To'] = file = open("main/contacts.txt", "r")
 
 
     msg.add_alternative("""\
