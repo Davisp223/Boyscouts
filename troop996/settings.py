@@ -83,8 +83,16 @@ WSGI_APPLICATION = 'troop996.wsgi.application'
 DB_URL = os.getenv("JAWSDB_URL")
 if DB_URL:
     DEBUG = False
-    import dj_database_url
-    DATABASES = {"default": dj_database_url.config(default=DB_URL)}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopyg2', 
+            'NAME': 'daaae5b9o69beq',
+            'USER': 'ucirogzlapsbxk',
+            'PASSWORD': 'cc6544e8d98634411154489932e8c679d059ba87ada629048e27e42063027920',
+            'HOST': 'ec2-3-216-181-219.compute-1.amazonaws.com',   # Or an IP Address that your DB is hosted on
+            'PORT': '5432',
+        }
+    }
 else:
     DEBUG = True
     DATABASES = {
