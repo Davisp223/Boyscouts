@@ -87,7 +87,7 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_HOST = os.getenv("DB_HOST")
 DB_NAME = os.getenv("DB_NAME")
 DB_PORT = os.getenv("DB_PORT")
-if DB_URL:
+if:
     DEBUG = False
     DATABASES = {
         'default': {
