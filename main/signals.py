@@ -26,7 +26,7 @@ def send_mail(sender, instance, created, **kwargs):
     <!DOCTYPE html>
     <html>
     <body>
-        <h1 style="color:SlateGray;">Hello, I hope your day is going well. We will be having our weekely meeting tonight on zoom at 7:00pm, the code is https://us04web.zoom.us/j/2507889269?pwd=emZRbk5Lb2kxT2ZKQytJN1hpQmVBdz09</h1>
+        <h1 style="color:SlateGray;">Check The Website at www.troop996.org for the latest update</h1>    
         <p>Message sent Via Troop996automessager.  If you need to respond to this message in any way please contact davisp713@gmail.com</p>
     </body>
     </html>
