@@ -28,6 +28,8 @@ SECRET_KEY = 'sw@!p$da2b^t1g)#j6&vzz1&rp$c1v#d6h=#$#phoe#@era$4o'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'www.troop996.org'
+    'troop996.org'
     'troop996.herokuapp.com'
 ]
 
