@@ -15,3 +15,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
+class Patch(models.Model):
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)

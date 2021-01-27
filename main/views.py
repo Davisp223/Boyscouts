@@ -5,10 +5,12 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
-    DeleteView,
+    DeleteView,  
 )
 from django.contrib.auth.decorators import login_required
 from .models import Post
+from .models import Patch
+
 # Create your views here.
 
 
@@ -19,10 +21,15 @@ def main(request):
     }
     return render(request, 'main/main.html', context,)
 
-def body(request):
-    return render(request, 'main/body.html')
+def changelog(request):
+    context = {
+        'Patchs': Patch.objects.all()
+    }
+    return render(request, 'main/changelog.html', context,)
 
-
+def soon(request):
+    return render(request, 'main/soon.html',)
+    
 class PostListView(ListView):
     model = Post
     template_name = 'main/main.html'  # <app>/<model>_<viewtype>.html

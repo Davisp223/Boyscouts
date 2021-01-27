@@ -28,7 +28,9 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('profile/', user_views.profile, name='profile'),
     path('main/', include('main.urls'), name='main'),
-    path('', include('users.urls'), name='home')    
+    path('', include('users.urls'), name='home'),
+    path('404.html', user_views.error, name='404'),   
+
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+{% block content %}
+    {% for Patch in Patchs %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ Patch.author }}</a>
+              <small class="text-muted">{{ Patch.date_posted }}</small>
+            </div>
+            <p class="article-content">{{ Patch.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+

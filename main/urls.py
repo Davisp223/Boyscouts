@@ -15,12 +15,14 @@ Including another URLconf
 """
 from . import views
 from django.urls import path
+from main import views as main_views
 from .views import (
     PostListView,
     PostDetailView,
     PostCreateView,
     PostUpdateView,
-    PostDeleteView  
+    PostDeleteView,
+
 )
 urlpatterns = [
     path('', PostListView.as_view(), name='main'),
@@ -28,5 +30,9 @@ urlpatterns = [
     path('post/new/', PostCreateView.as_view(), name='post-create'),
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
-    path('emails/body', views.body, name='body'),
+    path('changelog', main_views.changelog, name='changelog'),
+    path('soon', main_views.soon, name='soon'),
+
+
+
 ]

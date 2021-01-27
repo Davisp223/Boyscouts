@@ -23,6 +23,9 @@ def register(request):
 def home(request):
     return render(request, 'users/home.html')
 
+def error(request):
+    return render(request, 'users/error.html')
+
 @login_required
 def profile(request):
     if request.method == 'POST':

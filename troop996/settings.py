@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'sw@!p$da2b^t1g)#j6&vzz1&rp$c1v#d6h=#$#phoe#@era$4o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+Debug = os.getenv("Debug")
+DEBUG = Debug
 
 ALLOWED_HOSTS = [
     'www.troop996.org'
@@ -92,12 +93,12 @@ if DB_URL:
     DEBUG = False
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopyg2', 
-            'NAME': 'DB_NAME',
-            'USER': 'DB_USER',
-            'PASSWORD': 'DB_PASSWORD',
-            'HOST': 'DB_HOST',   # Or an IP Address that your DB is hosted on
-            'PORT': 'DB_PORT',
+            'ENGINE': django.db.backends.postgresql_psycopyg2, 
+            'NAME': DB_NAME,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASSWORD,
+            'HOST': DB_HOST,   # Or an IP Address that your DB is hosted on
+            'PORT': DB_PORT,
         }
     }
 else:
