@@ -23,3 +23,13 @@ class Post(models.Model):
 class Patch(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
+
+class Feedback(models.Model):
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+
+
+    def get_absolute_url(self):
+        return reverse('feedback',)
+
+

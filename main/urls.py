@@ -22,15 +22,22 @@ from .views import (
     PostCreateView,
     PostUpdateView,
     PostDeleteView,
-
+    ChangeLogView,
+    FeedbackView,
+    FeedbackCreateView
 )
 urlpatterns = [
     path('', PostListView.as_view(), name='main'),
+    #posts
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('post/new/', PostCreateView.as_view(), name='post-create'),
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
-    path('changelog', main_views.changelog, name='changelog'),
+    #feedback
+    path('feedback', FeedbackView.as_view(), name='feedback'),
+    path('feedback/create', FeedbackCreateView.as_view(), name='feedback-create'),
+    #other
+    path('changelog', ChangeLogView.as_view(), name='changelog'),
     path('soon', main_views.soon, name='soon'),
 
 

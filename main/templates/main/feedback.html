@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% block content %}
+    {% for Feedback in Feedbacks %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <small class="text-muted">{{ Feedback.date_posted }}</small>
+            </div>
+            <p class="article-content">{{ Feedback.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+

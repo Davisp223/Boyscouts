@@ -10,21 +10,40 @@ from django.views.generic import (
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from .models import Patch
+from .models import Feedback
 
 # Create your views here.
 
-
-
-@login_required
-def changelog(request):
-    context = {
-        'Patchs': Patch.objects.all()
-    }
-    return render(request, 'main/changelog.html', context,)
+#other
 @login_required
 def soon(request):
     return render(request, 'main/soon.html',)
-    
+
+class ChangeLogView(LoginRequiredMixin, ListView):
+    model = Patch
+    template_name = 'main/changelog.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'Patchs'
+    ordering = ['-date_posted']
+
+#feedback
+
+class FeedbackView(LoginRequiredMixin, ListView):
+    model = Feedback
+    template_name = 'main/feedback.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'Feedbacks'
+    ordering = ['-date_posted']
+
+class FeedbackCreateView(LoginRequiredMixin, CreateView):
+    model = Feedback
+    fields = ['content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+
+#posts
 class PostListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'main/main.html'  # <app>/<model>_<viewtype>.html
