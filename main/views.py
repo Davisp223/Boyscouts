@@ -14,30 +14,25 @@ from .models import Patch
 # Create your views here.
 
 
-@login_required
-def main(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'main/main.html', context,)
 
+@login_required
 def changelog(request):
     context = {
         'Patchs': Patch.objects.all()
     }
     return render(request, 'main/changelog.html', context,)
-
+@login_required
 def soon(request):
     return render(request, 'main/soon.html',)
     
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'main/main.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'posts'
     ordering = ['-date_posted']
 
 
-class PostDetailView(DetailView):
+class PostDetailView(LoginRequiredMixin, DetailView):
     model = Post
 
 
