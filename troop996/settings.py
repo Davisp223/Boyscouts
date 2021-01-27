@@ -25,8 +25,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'sw@!p$da2b^t1g)#j6&vzz1&rp$c1v#d6h=#$#phoe#@era$4o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-Debug = os.getenv("Debug")
-DEBUG = False
+
+DEBUG = (os.environ.get('Debug') == 'True')
 
 ALLOWED_HOSTS = [
     'www.troop996.org'
