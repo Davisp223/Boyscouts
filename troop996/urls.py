@@ -35,7 +35,7 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
     path('main/', include('main.urls'), name='main'),
     path('', include('users.urls'), name='home'),
-    path('404.html', user_views.error, name='404'),   
+    path('404.html', user_views.error, name='404'),
 
 ]
 

@@ -25,6 +25,9 @@ class ChangeLogView(LoginRequiredMixin, ListView):
     context_object_name = 'Patchs'
     ordering = ['-date_posted']
 
+
+
+
 #feedback
 
 class FeedbackView(LoginRequiredMixin, ListView):
